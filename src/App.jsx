@@ -1,10 +1,12 @@
-import SageIcon from '../public/sage-icon.svg'
+import SageIcon from './assets/anime-view-logo.svg'
+import Header from './components/Header'
+import Hero from './components/Hero'
 
 export function App() {
   return (
     <>
-      <img className="w-20" src={SageIcon} alt="" />
-      <h1>Hello world</h1>
+      <Header />
+      <Hero />
     </>
   )
 }
