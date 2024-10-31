@@ -4,8 +4,8 @@ import iconNotify from '../assets/icon-notify.svg'
 
 const Header = () => {
   return (
-    <header className="max-w-7xl m-auto flex items-center justify-between p-8 gap-4">
-      <a className="bangers text-[32px]" href="/">
+    <header className="max-w-7xl m-auto flex items-center justify-between py-4 px-8 gap-4">
+      <a className="bangers text-4xl" href="/">
         Anime View
       </a>
       <div className="w-full max-w-sm min-w-[200px]">
