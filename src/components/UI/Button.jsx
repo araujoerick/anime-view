@@ -9,7 +9,7 @@ const Button = ({
   ...props
 }) => {
   const baseStyles =
-    'flex items-center gap-3 px-6 py-3 rounded text-white uppercase'
+    'flex items-center gap-3 px-6 py-3 rounded text-white uppercase disabled:brightness-75 disabled:pointer-events-none'
   const variantStyles = {
     primary: 'bg-orange-600 hover:bg-orange-500',
     secondary: 'bg-neutral-300 text-neutral-800 hover:bg-neutral-100',
