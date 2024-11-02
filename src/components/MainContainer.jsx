@@ -11,6 +11,7 @@ const MainContainer = () => {
         <QueryClientProvider client={queryClient}>
           <TrendAnimeList />
         </QueryClientProvider>
+        <TopAnimeList />
       </main>
     </>
   )
