@@ -1,6 +1,6 @@
 import React from 'react'
-import avatar from '../assets/avatar.png'
-import iconNotify from '../assets/icon-notify.svg'
+import avatar from '../assets/icons/avatar.png'
+import iconNotify from '../assets/icons/icon-notify.svg'
 
 const Header = () => {
   return (

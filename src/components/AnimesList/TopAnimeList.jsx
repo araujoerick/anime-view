@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
-import useFetch from '../hooks/useFetch'
-import Card from './UI/Card'
+import useFetch from '../../hooks/useFetch'
+import Card from '../UI/Card'
 
 const TopAnimeList = () => {
   const { data, loading, error, request } = useFetch()

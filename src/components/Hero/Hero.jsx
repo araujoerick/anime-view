@@ -1,7 +1,7 @@
 import React from 'react'
-import Button from './UI/Button'
-import iconPlay from '../assets/icon-play.svg'
-import iconPlus from '../assets/icon-plus.svg'
+import Button from '../UI/Button'
+import iconPlay from '../../assets/icons/icon-play.svg'
+import iconPlus from '../../assets/icons/icon-plus.svg'
 import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
 import dayjs from 'dayjs'
@@ -9,6 +9,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 
 import 'swiper/css'
 import 'swiper/css/navigation'
+import 'swiper/css/pagination'
 
 import { Pagination, Navigation, Autoplay } from 'swiper/modules'
 
@@ -36,17 +37,24 @@ const Hero = () => {
           slidesPerView={1}
           pagination={{
             clickable: true,
+            // el: '.swiper-pagination',
+            type: 'progressbar',
           }}
           direction="horizontal"
           loop={true}
           autoplay={false}
           modules={[Pagination, Navigation, Autoplay]}
-          navigation={true}
-          // navigation={{
-          //   nextEl: '.carousel-control-next',
-          //   prevEl: '.carousel-control-prev',
-          // }}
+          // navigation={true}
+          navigation={{
+            nextEl: '.swiper-button-next',
+            //   prevEl: '.carousel-control-prev',
+          }}
           className=""
+          style={{
+            '--swiper-navigation-color': '#fff',
+            '--swiper-pagination-color': '#f57c00',
+            '--swiper-pagination-bullet-size': '15px',
+          }}
         >
           {data.data.map(anime => {
             const {
@@ -83,7 +91,7 @@ const Hero = () => {
                       <li>{formatedDate.format('DD MMM YYYY')}</li>
                     </ul>
                   </div>
-                  <p className="max-w-[50ch] text-balance min-h-28">
+                  <p className="max-w-[55ch] text-balance min-h-28">
                     {synopsis.length > 350
                       ? `${synopsis.slice(0, 300)}...`
                       : synopsis}

@@ -6,6 +6,9 @@ export default {
       screens: {
         xs: '375px',
       },
+      maxWidth: {
+        '8xl': '90rem',
+      },
       colors: {},
     },
   },
