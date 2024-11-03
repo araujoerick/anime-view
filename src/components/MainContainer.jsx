@@ -8,7 +8,7 @@ const queryClient = new QueryClient()
 const MainContainer = () => {
   return (
     <>
-      <main className="max-w-7xl px-8 m-auto">
+      <main className="max-w-[1440px] px-8 m-auto">
         <QueryClientProvider client={queryClient}>
           <Hero />
           <TrendAnimeList />
