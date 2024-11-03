@@ -10,8 +10,9 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
+import 'swiper/css/effect-fade'
 
-import { Pagination, Navigation, Autoplay } from 'swiper/modules'
+import { Pagination, Navigation, Autoplay, EffectFade } from 'swiper/modules'
 
 const getRecentAnime = async () => {
   const response = await axios.get(
@@ -34,26 +35,24 @@ const Hero = () => {
     return (
       <>
         <Swiper
+          modules={[Pagination, Navigation, Autoplay, EffectFade]}
           slidesPerView={1}
+          loop={true}
+          autoplay={{
+            delay: 5000,
+          }}
           pagination={{
             clickable: true,
-            // el: '.swiper-pagination',
             type: 'progressbar',
           }}
-          direction="horizontal"
-          loop={true}
-          autoplay={false}
-          modules={[Pagination, Navigation, Autoplay]}
-          // navigation={true}
           navigation={{
             nextEl: '.swiper-button-next',
-            //   prevEl: '.carousel-control-prev',
+            prevEl: '.swiper-button-prev',
           }}
-          className=""
+          effect={'fade'}
           style={{
-            '--swiper-navigation-color': '#fff',
             '--swiper-pagination-color': '#f57c00',
-            '--swiper-pagination-bullet-size': '15px',
+            // '--swiper-pagination-bullet-size': '15px',
           }}
         >
           {data.data.map(anime => {
@@ -108,6 +107,23 @@ const Hero = () => {
               </SwiperSlide>
             )
           })}
+
+          <div className="swiper-button-next text-orange-600 hover:text-orange-500 right-5 w-auto after:hidden">
+            <svg
+              width="64"
+              height="64"
+              viewBox="0 0 64 64"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <title>next button</title>
+              <circle cx="32" cy="32" r="32" fill="currentColor" />
+              <path
+                d="M36.5331 29.1733L30.4131 23.0533C30.1633 22.805 29.8253 22.6656 29.4731 22.6656C29.1208 22.6656 28.7829 22.805 28.5331 23.0533C28.4081 23.1773 28.3089 23.3248 28.2412 23.4872C28.1735 23.6497 28.1387 23.824 28.1387 24C28.1387 24.176 28.1735 24.3503 28.2412 24.5128C28.3089 24.6753 28.4081 24.8227 28.5331 24.9467L34.6664 31.0533C34.7914 31.1773 34.8906 31.3248 34.9583 31.4872C35.026 31.6497 35.0608 31.824 35.0608 32C35.0608 32.176 35.026 32.3503 34.9583 32.5128C34.8906 32.6753 34.7914 32.8227 34.6664 32.9467L28.5331 39.0533C28.282 39.3027 28.1402 39.6415 28.139 39.9953C28.1377 40.3491 28.2771 40.6889 28.5264 40.94C28.7757 41.1911 29.1145 41.3328 29.4684 41.3341C29.8222 41.3353 30.162 41.196 30.4131 40.9467L36.5331 34.8267C37.2821 34.0767 37.7029 33.06 37.7029 32C37.7029 30.94 37.2821 29.9233 36.5331 29.1733V29.1733Z"
+                fill="white"
+              />
+            </svg>
+          </div>
         </Swiper>
       </>
     )

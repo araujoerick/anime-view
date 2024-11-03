@@ -11,7 +11,7 @@ const MainContainer = () => {
       <main className="max-w-8xl px-8 m-auto">
         <QueryClientProvider client={queryClient}>
           <Hero />
-          <TrendAnimeList />
+          {/* <TrendAnimeList /> */}
         </QueryClientProvider>
         <TopAnimeList />
       </main>
