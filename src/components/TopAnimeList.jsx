@@ -9,8 +9,6 @@ const TopAnimeList = () => {
     request('https://api.jikan.moe/v4/top/anime')
   }, [request])
 
-  console.log(data)
-
   if (loading) return <p>Loading...</p>
   if (error) return <p>Error: {error}</p>
   if (data) {

@@ -5,8 +5,6 @@ import Card from './UI/Card'
 
 const fetchTrendAnime = async () => {
   const response = await axios.get('https://kitsu.io/api/edge/trending/anime')
-  console.log(response.data)
-
   return response.data
 }
 
