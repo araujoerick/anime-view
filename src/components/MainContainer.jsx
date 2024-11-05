@@ -1,6 +1,6 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import TopAnimeList from './AnimesList/TopAnimeList'
-import TrendAnimeList from './AnimesList/TrendAnimeList'
+import TrendingAnime from './AnimesList/TrendingAnime'
 import Hero from './Hero/Hero'
 
 const queryClient = new QueryClient()
@@ -11,7 +11,7 @@ const MainContainer = () => {
       <main className="max-w-8xl px-8 m-auto">
         <QueryClientProvider client={queryClient}>
           <Hero />
-          {/* <TrendAnimeList /> */}
+          <TrendingAnime />
         </QueryClientProvider>
         <TopAnimeList />
       </main>

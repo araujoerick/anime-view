@@ -1,9 +1,9 @@
 import React from 'react'
 import iconStar from '../../assets/icons/icon-star.svg'
 
-const Card = ({ title, imgUrl, duration, episodes, score, type }) => {
+const Card = ({ title, imgUrl, duration, episodes, score, type, ...props }) => {
   return (
-    <div className="relative pb-10">
+    <div className="relative pb-10 w-max" {...props}>
       <img className="rounded max-w-full" src={imgUrl} alt={title} />
       <div className="absolute top-0 bg-gradient-to-t from-black from-20% via-transparent flex flex-col justify-end h-full w-full p-3 gap-1 rounded">
         <div className="flex justify-between mb-1">
