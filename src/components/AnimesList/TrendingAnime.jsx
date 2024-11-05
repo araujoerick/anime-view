@@ -11,7 +11,9 @@ import { Navigation } from 'swiper/modules'
 
 const fetchTrendAnime = async () => {
   const BASE_URL = 'https://api.jikan.moe/v4'
-  const response = await axios.get(`${BASE_URL}/top/anime?filter=airing`)
+  const response = await axios.get(
+    `${BASE_URL}/top/anime?filter=airing&limit=9`
+  )
   return response.data
 }
 const TrendingAnime = () => {
@@ -27,13 +29,35 @@ const TrendingAnime = () => {
   if (data) {
     return (
       <>
-        <h1 className="text-5xl">Trending Now</h1>
+        <h2 className="text-3xl font-semibold py-8 mt-8">Trending Now</h2>
+
         <Swiper
           modules={[Navigation]}
-          slidesPerView={6}
+          breakpoints={{
+            1450: {
+              slidesPerView: 6,
+              spaceBetween: 10,
+            },
+            1250: {
+              slidesPerView: 5,
+              spaceBetween: 10,
+            },
+            1020: {
+              slidesPerView: 4,
+            },
+            780: {
+              slidesPerView: 3,
+            },
+            540: {
+              slidesPerView: 2,
+            },
+          }}
+          slidesPerView={1}
           spaceBetween={5}
-          // className="mySwiper"
-          navigation={true}
+          // navigation={{
+          //   nextEl: '.swiper-button-next',
+          //   prevEl: '.swiper-button-prev',
+          // }}
         >
           {data.data.map((anime, index) => {
             const {
