@@ -3,9 +3,13 @@ import iconStar from '../../assets/icons/icon-star.svg'
 
 const Card = ({ title, imgUrl, duration, episodes, score, type, ...props }) => {
   return (
-    <div className="relative pb-10 w-max" {...props}>
-      <img className="rounded max-w-full" src={imgUrl} alt={title} />
-      <div className="absolute top-0 bg-gradient-to-t from-black from-20% via-transparent flex flex-col justify-end h-full w-full p-3 gap-1 rounded">
+    <div className="flex flex-col relative pb-10 w-max" {...props}>
+      <img
+        className="rounded w-[224px] h-[315px] object-cover"
+        src={imgUrl}
+        alt={title}
+      />
+      <div className="absolute top-0 left-0 bg-gradient-to-t from-black from-20% via-transparent flex flex-col justify-end h-full w-full p-3 gap-1 rounded">
         <div className="flex justify-between mb-1">
           {episodes && (
             <p className="bg-neutral-500 text-sm px-3 py-0.5 rounded">

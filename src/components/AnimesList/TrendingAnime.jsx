@@ -2,6 +2,12 @@ import React from 'react'
 import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
 import Card from '../UI/Card'
+import { Swiper, SwiperSlide } from 'swiper/react'
+
+import 'swiper/css'
+import 'swiper/css/navigation'
+
+import { Navigation } from 'swiper/modules'
 
 const fetchTrendAnime = async () => {
   const BASE_URL = 'https://api.jikan.moe/v4'
@@ -22,7 +28,13 @@ const TrendingAnime = () => {
     return (
       <>
         <h1 className="text-5xl">Trending Now</h1>
-        <div className="flex flex-wrap gap-3">
+        <Swiper
+          modules={[Navigation]}
+          slidesPerView={6}
+          spaceBetween={5}
+          // className="mySwiper"
+          navigation={true}
+        >
           {data.data.map((anime, index) => {
             const {
               mal_id,
@@ -35,21 +47,25 @@ const TrendingAnime = () => {
               type,
             } = anime
             return (
-              <Card
+              <SwiperSlide
+                className="relative max-h-max"
                 key={`${mal_id}${
                   // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
                   index
                 }`}
-                title={title || title_english}
-                imgUrl={images.webp.image_url || images.jpg.image_url}
-                duration={duration || '??'}
-                episodes={episodes || '??'}
-                score={score}
-                type={type === 'TV' ? `${type} Séries` : type}
-              />
+              >
+                <Card
+                  title={title || title_english}
+                  imgUrl={images.webp.image_url || images.jpg.image_url}
+                  duration={duration || '??'}
+                  episodes={episodes || '??'}
+                  score={score}
+                  type={type === 'TV' ? `${type} Séries` : type}
+                />
+              </SwiperSlide>
             )
           })}
-        </div>
+        </Swiper>
       </>
     )
   }
